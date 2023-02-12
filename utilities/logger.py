@@ -23,7 +23,7 @@ class Logger():
     def _init_logger_txt(fileName):
         logger = logging.getLogger('name_%s' % fileName)  #1
         logger.setLevel(logging.INFO)  #2
-        handler = logging.FileHandler("C:\\Selenium-python\\logs"+ fileName +".log") #3
+        handler = logging.FileHandler("C:\\Selenium-python\\logs\\"+ fileName +".log") #3
         handler.setLevel(logging.INFO)  #4
         formatter = logging.Formatter('%(asctime)s: %(levelname)s: %(message)s') #5
         handler.setFormatter(formatter)  #6

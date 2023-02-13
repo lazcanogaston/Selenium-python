@@ -1,2 +1,2 @@
 class Locators():
-    pass
+    google_search_bar = '//input[@title="Buscar"]'

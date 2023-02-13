@@ -5,10 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage():
-    def init(self, driver):
+    def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 15)
-        self.actions = ActionChains(driver)
+        self.wait = WebDriverWait(self.driver, 15)
+        self.actions = ActionChains(self.driver)
 
     #web driver methods
 
@@ -49,4 +49,6 @@ class BasePage():
 
     def wait_until_visible(self, locator):
         self.wait.until(EC.visibility_of((By.XPATH, locator)))
-    
+
+    def wait_until_title_contains(self, title):
+        self.wait.until(EC.title_contains(title))

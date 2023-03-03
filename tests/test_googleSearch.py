@@ -23,6 +23,7 @@ class TestBasicSearch():
         try:
             try:
                 driver.get("https://www.google.com")
+                driver.maximize_window()
                 googlePage = GooglePage(driver)
                 googlePage.wait_until_title_contains("Google")
                 logger.info("The driver is in the desired URL.")

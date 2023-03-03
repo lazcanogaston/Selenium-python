@@ -48,7 +48,8 @@ class BasePage():
     #web driver wait 
 
     def wait_until_visible(self, locator):
-        self.wait.until(EC.visibility_of((By.XPATH, locator)))
+        element = self.find_element(locator)
+        self.wait.until(EC.visibility_of(element))
 
     def wait_until_title_contains(self, title):
         self.wait.until(EC.title_contains(title))

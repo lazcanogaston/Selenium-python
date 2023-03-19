@@ -4,6 +4,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+from config.locators import Locators
+
 class BasePage():
     def __init__(self, driver):
         self.driver = driver
@@ -11,7 +13,9 @@ class BasePage():
         self.actions = ActionChains(self.driver)
 
     #web driver methods
-
+    def get_url(self, url):
+        self.driver.get(url)
+        self.driver.maximize_window()
     def find_element(self, locator):
         return self.driver.find_element(By.XPATH, locator)
     
@@ -32,6 +36,7 @@ class BasePage():
     #web element methods
     
     def click(self, locator):
+        self.wait_until_visible(locator)
         self.find_element(locator).click()
 
     def js_click(self, locator):
@@ -39,6 +44,7 @@ class BasePage():
         self.driver.execute_script("arguments[0].click();", element) 
     
     def send_keys(self, locator, keys):
+        self.wait_until_visible(locator)
         self.find_element(locator).send_keys(keys)
     
     def get_attribute(self, locator, att):
@@ -47,9 +53,18 @@ class BasePage():
 
     #web driver wait 
 
-    def wait_until_visible(self, locator):
+    def wait_until_visible(self, locator): # visibility of an element we already know it is in the DOM
         element = self.find_element(locator)
         self.wait.until(EC.visibility_of(element))
 
+    def wait_until_present_and_visible(self, locator):
+        self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+
     def wait_until_title_contains(self, title):
         self.wait.until(EC.title_contains(title))
+    
+    def wait_until_url_to_be(self, url):
+        self.wait.until(EC.url_to_be(url))
+
+
+    # ADD is_displayed() method for a webElement

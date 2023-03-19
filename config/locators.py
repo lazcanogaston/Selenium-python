@@ -17,3 +17,6 @@ class Locators():
     user_avatar = '//button[@id="avatar-btn"]'
     search_bar = '//form[@id="search-form"]//input[@id="search"]'
     search_btn = '//button[contains(@id, "search-icon-legacy")]'
+
+    #Search results page
+    result_titles = '//span[@id="title" and contains(text(), "han visto")]/preceding::a[@id="video-title"]'

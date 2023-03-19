@@ -8,5 +8,7 @@ def init_driver():
     # selenium 4 to execute tests locally if not, we need to instance the driver with the URL of the selenium hub 
     
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    driver.maximize_window()
     yield driver
+    driver.delete_all_cookies()
     driver.quit()

@@ -15,7 +15,6 @@ class BasePage():
     #web driver methods
     def get_url(self, url):
         self.driver.get(url)
-        self.driver.maximize_window()
     def find_element(self, locator):
         return self.driver.find_element(By.XPATH, locator)
     
@@ -34,7 +33,9 @@ class BasePage():
         return self.driver.title
     
     #web element methods
-    
+    def clear_inputField(self, locator):
+        self.find_element(locator).clear()
+        
     def click(self, locator):
         self.wait_until_visible(locator)
         self.find_element(locator).click()

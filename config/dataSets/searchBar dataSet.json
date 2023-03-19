@@ -1,0 +1,13 @@
+{
+    "testCase" : {
+        "cats_search" : {
+            "search_text" : "cat",
+            "expected_result" : ["cat", "gato"]
+        },
+        "band_search" : {
+            "search_text" : "mi amigo invencible",
+            "expected_result" : ["mi amigo invencible"]
+        }
+
+    }
+}

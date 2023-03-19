@@ -1,0 +1,17 @@
+{
+    "testCase" : {
+        "cats_search_pass_expected" : {
+            "search_text" : "cat",
+            "expected_result" : ["cat", "gato"],
+            "part_param" : "snippet",
+            "expected_status" : 200
+        },
+        "cats_search_fail_expected" : {
+            "search_text" : "cat",
+            "expected_result" : ["cat", "gato"],
+            "part_param" : "",
+            "expected_status" : 400
+        }
+
+    }
+}

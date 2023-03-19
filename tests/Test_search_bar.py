@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import pytest
 from pages.HomePage import HomePage
 from pages.searchResultsPage import SearchResultsPage
+from tests.baseTest import BaseTest
 from utilities.dsHandler import DsHandler
 from utilities.logger import Logger
 from pages.SignInPage import SignInPage
@@ -17,7 +18,7 @@ with open("C:\\Selenium-python\\config\\dataSets\\searchBar dataSet.json", "r") 
 
 first_run = True
 
-class TestSearchBar():
+class TestSearchBar(BaseTest):
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_aaa(self, iteration_name, iteration_values, init_driver):
         global first_run
@@ -31,7 +32,12 @@ class TestSearchBar():
         homePage.search_video(iteration_values['search_text'], logger)
         #assert
         searchResultsPage = SearchResultsPage(driver)
-        fails = searchResultsPage.validate_searchBar_results(iteration_values['expected_result'], logger)
+        #METHOD BEFORE USING BASE TEST
+        #fails = searchResultsPage.validate_searchBar_results(iteration_values['expected_result'], logger)
+        #METHOS USING BASE TEST
+        possible_results = searchResultsPage.searchBar_results(logger)
+        fails = BaseTest.validate_json_response(possible_results, iteration_values['expected_result'])
+
         if fails > 0:
             logger.error(f"TEST FAILED IN {fails} VALIDATIONS: There results doesn't match with the search query.")
             assert False

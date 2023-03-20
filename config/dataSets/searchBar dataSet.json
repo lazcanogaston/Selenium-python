@@ -2,11 +2,11 @@
     "testCase" : {
         "singer_search" : {
             "search_text" : "rels b",
-            "expected_result" : ["rels b", "rels"]
+            "expected_result" : ["relsb", "rels", "skinnyflakk"]
         },
         "band_search" : {
             "search_text" : "mi amigo invencible",
-            "expected_result" : ["mi amigo invencible"]
+            "expected_result" : ["miamigoinvencible"]
         }
 
     }

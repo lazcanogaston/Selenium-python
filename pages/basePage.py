@@ -67,5 +67,7 @@ class BasePage():
     def wait_until_url_to_be(self, url):
         self.wait.until(EC.url_to_be(url))
 
+    def wait_until_located_in_DOM(self, locator):
+        self.wait.until(EC.presence_of_element_located((By.XPATH, locator)))
 
     # ADD is_displayed() method for a webElement

@@ -2,13 +2,13 @@
     "testCase" : {
         "artist_search_pass_expected" : {
             "search_text" : "rels b",
-            "expected_result" : ["rels b", "rels"],
+            "expected_result" : ["relsb", "rels", "skinnyflakk"],
             "part_param" : "snippet",
             "expected_status" : 200
         },
         "artist_search_fail_expected" : {
             "search_text" : "rels b",
-            "expected_result" : ["rels b", "rels"],
+            "expected_result" : ["relsb", "rels", "skinnyflakk"],
             "part_param" : "",
             "expected_status" : 400
         }

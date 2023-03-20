@@ -33,13 +33,14 @@ class SearchResultsPage(BasePage):
             
     def searchBar_results(self, search_text, logger):
         results_content = []
-        self.wait_until_title_contains(search_text)
-        self.wait_until_present_and_visible(f"({Locators.result_titles})[1]")
+        first_search_result = f"({Locators.result_titles})[1]"
+        self.wait_until_located_in_DOM(first_search_result)
+        self.wait_until_present_and_visible(first_search_result)
         #self.wait_until_visible(f"({Locators.result_titles})[1]")
         # returns the list of the searche results
         results = self.find_elements(Locators.result_titles) 
-        # get the aria-label attibute of each result and convert it to lower case
-        results_content = list(map(lambda i: i.get_attribute("aria-label").lower(), results)) 
+        # get the aria-label attibute of each result and convert it to lower case and remove the spaces
+        results_content = list(map(lambda i: i.get_attribute("aria-label").lower().replace(" ", ""), results)) 
         return results_content
 
 

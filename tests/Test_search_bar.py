@@ -35,7 +35,7 @@ class TestSearchBar(BaseTest):
         #METHOD BEFORE USING BASE TEST
         #fails = searchResultsPage.validate_searchBar_results(iteration_values['expected_result'], logger)
         #METHOS USING BASE TEST
-        possible_results = searchResultsPage.searchBar_results(logger)
+        possible_results = searchResultsPage.searchBar_results(iteration_values['search_text'], logger)
         fails = BaseTest.validate_json_response(possible_results, iteration_values['expected_result'])
 
         if fails > 0:
@@ -43,7 +43,7 @@ class TestSearchBar(BaseTest):
             assert False
         else:
             logger.info("TEST PASSED: All results matches the search query criteria.")
-        time.sleep(10)
+        time.sleep(3)
 
 
 #EL OTRO TEST PUEDE SER DE LOGUEARSE, BUSCAR ALGO, GUARDAR EL PRIMER VIDEO EN VER MAS TARDE O DARLE LIKE, IR AL PERFIL, BUSCAR LOS QUE VIDEOS QUE ME GUSTAN Y FIJARME QUE ESTA EL QUE GUARDE, DESPUES AGARRAR Y SACARLE EL LIKE, ABRIR EL VIDEO Y VER QUE YA NO LO TENGA MAS

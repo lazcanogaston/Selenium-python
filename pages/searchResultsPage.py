@@ -31,9 +31,11 @@ class SearchResultsPage(BasePage):
     #             fails += 1  
     #     return fails
             
-    def searchBar_results(self, logger):
+    def searchBar_results(self, search_text, logger):
         fails = 0
+        self.wait_until_title_contains(search_text)
         self.wait_until_present_and_visible(f"({Locators.result_titles})[1]")
+        #self.wait_until_visible(f"({Locators.result_titles})[1]")
         # returns the list of the searche results
         results = self.find_elements(Locators.result_titles) 
         # get the aria-label attibute of each result and convert it to lower case

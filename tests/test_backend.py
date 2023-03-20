@@ -13,36 +13,36 @@ with open("C:\\Selenium-python\\config\\dataSets\\backend_searchBar dataSet.json
     ds_dict = json.load(json_file) # converts json into dict
 
 class TestBackend(BaseTest):
-    # @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
-    # def test_search_status_code(self, iteration_name, iteration_values):
-    #     logger = Logger._init_logger_txt(iteration_name)
+    @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
+    def test_search_status_code(self, iteration_name, iteration_values):
+        logger = Logger._init_logger_txt(iteration_name)
         
-    #     base_url = 'https://www.googleapis.com/youtube/v3/search/'
+        base_url = 'https://www.googleapis.com/youtube/v3/search/'
         
-    #     params = {
-    #         "part": iteration_values['part_param'],
-    #         "q": iteration_values["search_text"],  # search query
-    #         "type": "video",
-    #         "key": os.getenv('api_key') 
-    #     }
-    #     try:
-    #         response = requests.get(base_url, params=params)
-    #         body_response = json.loads(response.text)
-    #         if "pass" in iteration_name and response.status_code == iteration_values["expected_status"]:
-    #             logger.info(f"PASS-TEST: The status is 200 as expected.")
-    #             assert True
+        params = {
+            "part": iteration_values['part_param'],
+            "q": iteration_values["search_text"],  # search query
+            "type": "video",
+            "key": os.getenv('api_key') 
+        }
+        try:
+            response = requests.get(base_url, params=params)
+            body_response = json.loads(response.text)
+            if "pass" in iteration_name and response.status_code == iteration_values["expected_status"]:
+                logger.info(f"PASS-TEST: The status is 200 as expected.")
+                assert True
                 
-    #         elif "fail" in iteration_name and response.status_code == iteration_values["expected_status"]:
-    #             logger.info(f"PASS-TEST: The status is {response.status_code} as expected.")
-    #             assert True
-    #         else:
-    #             logger.error(f"TEST-FAIL: The status is {response.status_code} and it should be {iteration_values['expected_status']}.")
-    #             assert False
-    #     except:
-    #         logger.error("The request is invalid.")
-    #         assert False
+            elif "fail" in iteration_name and response.status_code == iteration_values["expected_status"]:
+                logger.info(f"PASS-TEST: The status is {response.status_code} as expected.")
+                assert True
+            else:
+                logger.error(f"TEST-FAIL: The status is {response.status_code} and it should be {iteration_values['expected_status']}.")
+                assert False
+        except:
+            logger.error("The request is invalid.")
+            assert False
 
-
+    # @pytest.mark.skip
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_search_response(self, iteration_name, iteration_values):
         

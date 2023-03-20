@@ -9,6 +9,7 @@ class Locators():
     login_btn = '//div[@id="passwordNext"]'
     
     # Home Page
+    yt_logo ='//div[@id="start"]//a[@id="logo"]'
     user_avatar = '//button[@id="avatar-btn"]'
     search_bar = '//form[@id="search-form"]//input[@id="search"]'
     search_btn = '//button[contains(@id, "search-icon-legacy")]'

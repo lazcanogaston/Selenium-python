@@ -1,8 +1,8 @@
 {
     "testCase" : {
-        "cats_search" : {
-            "search_text" : "cat",
-            "expected_result" : ["cat", "gato"]
+        "singer_search" : {
+            "search_text" : "rels b",
+            "expected_result" : ["rels b", "rels"]
         },
         "band_search" : {
             "search_text" : "mi amigo invencible",

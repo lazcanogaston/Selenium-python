@@ -10,8 +10,13 @@ class HomePage(BasePage):
         try:
             self.clear_inputField(Locators.search_bar)
             self.send_keys(Locators.search_bar, text)
-            logger.info(f"Text:'{text} populated in the search bar.")
-            self.click(Locators.search_btn)
-            self.wait_until_title_contains(text)
+            logger.info(f"Text:'{text}' populated in the search bar.")
+            try:
+                self.click(Locators.search_btn)
+                self.wait_until_title_contains(text)
+                logger.info("Search button clicked.")
+            except:
+                logger.error("Search button couldn't be clicked.")
+                raise Exception()
         except:
             logger.exception(f"Text:'{text}' couldn't be searched.")

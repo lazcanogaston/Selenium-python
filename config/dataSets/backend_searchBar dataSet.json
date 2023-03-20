@@ -1,14 +1,14 @@
 {
     "testCase" : {
-        "cats_search_pass_expected" : {
-            "search_text" : "cat videos",
-            "expected_result" : ["cat", "gato"],
+        "artist_search_pass_expected" : {
+            "search_text" : "rels b",
+            "expected_result" : ["rels b", "rels"],
             "part_param" : "snippet",
             "expected_status" : 200
         },
-        "cats_search_fail_expected" : {
-            "search_text" : "cat videos",
-            "expected_result" : ["cat", "gato"],
+        "artist_search_fail_expected" : {
+            "search_text" : "rels b",
+            "expected_result" : ["rels b", "rels"],
             "part_param" : "",
             "expected_status" : 400
         }

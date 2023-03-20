@@ -4,6 +4,7 @@ import time
 
 from dotenv import load_dotenv
 import pytest
+from config.locators import Locators
 from pages.HomePage import HomePage
 from pages.searchResultsPage import SearchResultsPage
 from tests.baseTest import BaseTest
@@ -27,23 +28,27 @@ class TestSearchBar(BaseTest):
         if first_run == True:
             signIn_Page = SignInPage(driver)
             signIn_Page.sign_in(os.getenv('user_email'), os.getenv('user_password'), logger)
-            first_run = False
-        homePage = HomePage(driver)
+            first_run = False 
+        homePage = HomePage(driver) 
+        homePage.wait_until_title_contains("YouTube")
         homePage.search_video(iteration_values['search_text'], logger)
-        #assert
         searchResultsPage = SearchResultsPage(driver)
         #METHOD BEFORE USING BASE TEST
         #fails = searchResultsPage.validate_searchBar_results(iteration_values['expected_result'], logger)
         #METHOS USING BASE TEST
-        possible_results = searchResultsPage.searchBar_results(iteration_values['search_text'], logger)
-        fails = BaseTest.validate_json_response(possible_results, iteration_values['expected_result'])
+        results = searchResultsPage.searchBar_results(iteration_values['search_text'], logger)
+        if len(results) == 0:
+            logger.error("The search results list is empty.")
+        else:
+            logger.info(f"The results list contains {len(results)} items.")
+            logger.info(f"Results list: {results}.") # if this line is not in the logger is because of icons in the youtube description
+        fails = BaseTest.validate_json_response(results, iteration_values['expected_result'])
 
         if fails > 0:
             logger.error(f"TEST FAILED IN {fails} VALIDATIONS: There results doesn't match with the search query.")
             assert False
         else:
             logger.info("TEST PASSED: All results matches the search query criteria.")
-        time.sleep(3)
 
 
 #EL OTRO TEST PUEDE SER DE LOGUEARSE, BUSCAR ALGO, GUARDAR EL PRIMER VIDEO EN VER MAS TARDE O DARLE LIKE, IR AL PERFIL, BUSCAR LOS QUE VIDEOS QUE ME GUSTAN Y FIJARME QUE ESTA EL QUE GUARDE, DESPUES AGARRAR Y SACARLE EL LIKE, ABRIR EL VIDEO Y VER QUE YA NO LO TENGA MAS

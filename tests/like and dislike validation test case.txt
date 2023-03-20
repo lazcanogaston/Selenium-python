@@ -10,12 +10,12 @@ Steps:
     5- Click like button -> expected conditions: 1- the "hand" in the like button its filled with white color
                                                  2- the number of likes increases in one. (not tested automaically because is sensible to errors)
     
-    6- Click like button again -> expected conditions: 1- the "hand" in the like button it isn't filled with white color and looks like the "dislike" button
+    6- Click like button again -> expected conditions: 1- the "hand" in the like button loses its filled color
                                                        2- the number of likes decreases in one. (not tested automaically because is sensible to errors)
     
     7- Clik the "dislike" button -> expected conditions: 1- the "hand" in the "dislike" button its filled with white color
     
-    8- Click "dislike" button again -> expected conditions: 1- the "hand" in the "dislike" button it isn't filled with white color and looks like the "like" button
+    8- Click "dislike" button again -> expected conditions: 1- the "hand" in the "dislike" button loses its filled color
     
     9- Repeat step 5
 

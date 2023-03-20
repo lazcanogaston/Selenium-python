@@ -10,6 +10,7 @@ class BasePage():
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 15)
+        self.wait3 = WebDriverWait(self.driver, 3)
         self.actions = ActionChains(self.driver)
 
     #web driver methods
@@ -52,11 +53,22 @@ class BasePage():
         att_value = self.find_element(locator).get_attribute(att)
         return att_value
 
+    def is_displayed(self, locator):
+        return self.find_element(locator).is_displayed()
     #web driver wait 
 
+    def wait3_until_element_is_clickeable(self, locator):
+        self.wait3.until(EC.element_to_be_clickable((By.XPATH, locator)))
+    
+    def wait3_until_attribute_contains(self, locator, attribute, text):
+        self.wait3.until(EC.text_to_be_present_in_element_attribute((By.XPATH, locator), attribute, text))
+                                                     
     def wait_until_visible(self, locator): # visibility of an element we already know it is in the DOM
         element = self.find_element(locator)
         self.wait.until(EC.visibility_of(element))
+    
+    def wait_3_until_present_and_visible(self, locator):
+        self.wait3.until(EC.visibility_of_element_located((By.XPATH, locator)))
 
     def wait_until_present_and_visible(self, locator):
         self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))

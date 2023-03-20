@@ -13,7 +13,7 @@ with open("C:\\Selenium-python\\config\\dataSets\\backend_searchBar dataSet.json
     ds_dict = json.load(json_file) # converts json into dict
 
 class TestBackend(BaseTest):
-    @pytest.mark.skip
+    #@pytest.mark.skip
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_search_status_code(self, iteration_name, iteration_values):
         logger = Logger._init_logger_txt(iteration_name)
@@ -43,7 +43,7 @@ class TestBackend(BaseTest):
             logger.error("The request is invalid.")
             assert False
 
-    @pytest.mark.skip
+    #@pytest.mark.skip
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_search_response(self, iteration_name, iteration_values):
         

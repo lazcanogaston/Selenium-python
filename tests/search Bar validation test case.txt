@@ -1,0 +1,13 @@
+Feature: search bar functionality
+Title: test search results after the search button is pressed.
+Description: Given I'm an user logged, when I type {variable text} in the Home search bar, then the results matches the search query.
+Preconditions: Have an account created and be logged in.
+Steps:
+    1- Click on the search bar
+    2- Type: {variable text}
+    3- Click on the "search button"
+
+Expected conditions:
+    1- The title of the browser's tab should be the same as the text searched -> {variable text}
+    2- The results that appears in the center of the page should be related with the text searched. They should contains {variable text} on theirs attributes.
+    

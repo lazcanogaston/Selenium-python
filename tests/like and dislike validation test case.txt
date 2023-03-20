@@ -1,0 +1,41 @@
+Feature: like and dislike buttons functionality
+Title: test like and dislike buttons correct after interacting with them with a logged user.
+Description: Given I'm an user logged, when I press like or dislike buttons then the button selected changes its style.
+Preconditions: Have an account created and be logged in.
+Steps:
+    1- Click on the search bar
+    2- Type: {variable text}
+    3- Click on the "search button"
+    4- Select the first video of the list
+    5- Click like button -> expected conditions: 1- the "hand" in the like button its filled with white color
+                                                 2- the number of likes increases in one. (not tested automaically because is sensible to errors)
+    
+    6- Click like button again -> expected conditions: 1- the "hand" in the like button it isn't filled with white color and looks like the "dislike" button
+                                                       2- the number of likes decreases in one. (not tested automaically because is sensible to errors)
+    
+    7- Clik the "dislike" button -> expected conditions: 1- the "hand" in the "dislike" button its filled with white color
+    
+    8- Click "dislike" button again -> expected conditions: 1- the "hand" in the "dislike" button it isn't filled with white color and looks like the "like" button
+    
+    9- Repeat step 5
+
+    10- repeat step 7 -> expected conditions: 1- the "hand" in the like button loses its filled color
+                                              2- the "hand" in the "dislike" button its filled with white color
+    
+    11 - Repeat step 8 -> expected condition : 1- Like and dislike buttons doesn't have filled color.
+    12- Log out
+
+
+TEST CASE 2:
+
+Feature: like and dislike buttons functionality
+Title: test like and dislike buttons correct after interacting with them with no logged in user.
+Description: Given I'm an not registered user, when I open a video and press like or dislike buttons then a pop up appears.
+Preconditions: Not be logged.
+Steps:
+    1- Click on the search bar
+    2- Type: {variable text}
+    3- Click on the "search button"
+    4- Select the first video of the list
+    5- Click "like" button -> expected condition: A pop which says "¿Te gusta este video? / Accede para hacer valer tu opinión. / Acceder" appears.
+    6- Click "dislike" button -> expected condition: A pop which says "¿Te gusta este video? / Accede para hacer valer tu opinión. / Acceder" appears.

@@ -1,0 +1,12 @@
+{
+    "testCase" : {
+        "signed_in_user": {
+            "user" : "os.getenv('user_email')",
+            "pass" : "os.getenv('user_password')",
+            "search_text" : "mi amigo invencible"
+        },
+        "not_logged_user": {
+            "search_text" : "lasser y craneo"
+        }
+    }
+}

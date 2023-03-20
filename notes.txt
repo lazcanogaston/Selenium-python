@@ -1,0 +1,3 @@
+Other tests cases that can apply for testing the search bar functionality can be:
+    1- if the user story says that there are some forbidden characters -> prepare test cases to cover the different scenarios
+    2- if there is a min/ max number of characters -> prepare test cases for those scenarios

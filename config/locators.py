@@ -1,10 +1,5 @@
 class Locators():
-    # google_search_bar = '//input[@title="Buscar"]'
-    # home_page_search_btn = '//a[@class="searchbox"]'
-    # search_input = '//input[@type="search"]'
-    # articles = '//article//a[contains(text(), "replaceMe")]'
-
-    # SAUCE PAGE
+    
     # sign in section
     access_btn = '//div[@id="buttons"]//a[@aria-label="Acceder"]'
     use_other_account = '(//div[@title="Google"]/following::div[@class="BHzsHc"])[1]' #not the best option, used just for using node relationships

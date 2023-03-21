@@ -1,0 +1,35 @@
+{   
+    "testCase" : {
+        "like_204_expected" : {
+            "id_param": "M8sGJJqsSGA",
+            "rating_param": "like",
+            "bearer_token": "os.getenv('bearer_token')",
+            "expected_status": 204
+        },
+        "like_401_unauthorized_expected" : {
+            "id_param": "M8sGJJqsSGA",
+            "rating_param": "like",
+            "bearer_token": "Variables.fake_token",
+            "expected_status": 401
+        },
+        "dislike_204_expected" : {
+            "id_param": "M8sGJJqsSGA",
+            "rating_param": "dislike",
+            "bearer_token": "os.getenv('bearer_token')",
+            "expected_status": 204
+        },
+        "bad_parameter_400_expected":{
+            "id_param": "M8sGJJqsSGA",
+            "rating_param": "",
+            "bearer_token": "os.getenv('bearer_token')",
+            "expected_status": 400
+        },
+        "deleteAllInteractions_204_expected" : {
+            "id_param": "M8sGJJqsSGA",
+            "rating_param": "none",
+            "bearer_token": "os.getenv('bearer_token')",
+            "expected_status": 204
+        }
+
+    }
+}

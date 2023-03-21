@@ -1,2 +1,2 @@
 class Variables():
-    first_var = "hola"
+    fake_token = "fakeToken"

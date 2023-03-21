@@ -1,6 +1,6 @@
 class BaseTest():
 
-    def validate_json_response(results_content, expected_result):
+    def validate_json_response(results_content, expected_result): #parameters must be Lists
         assertion = False
         possible_results = len(expected_result)
         fails = 0

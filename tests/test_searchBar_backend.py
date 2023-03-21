@@ -12,7 +12,7 @@ load_dotenv()
 with open("C:\\Selenium-python\\config\\dataSets\\backend_searchBar dataSet.json", "r") as json_file:
     ds_dict = json.load(json_file) # converts json into dict
 
-class TestBackend(BaseTest):
+class TestSearchBarBackend(BaseTest):
     #@pytest.mark.skip
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_search_status_code(self, iteration_name, iteration_values):

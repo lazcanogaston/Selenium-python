@@ -1,13 +1,16 @@
 {
     "testCase" : {
-        "singer_search" : {
+        "singer_search_pass_expected" : {
             "search_text" : "rels b",
             "expected_result" : ["relsb", "rels", "skinnyflakk"]
         },
-        "band_search" : {
+        "band_search_pass_expected" : {
             "search_text" : "mi amigo invencible",
             "expected_result" : ["miamigoinvencible"]
+        },
+        "search_fail_expected" : {
+            "search_text" : "mi amigo invencible",
+            "expected_result" : ["kjs"]
         }
-
     }
 }

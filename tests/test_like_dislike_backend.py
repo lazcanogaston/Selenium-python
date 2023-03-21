@@ -17,8 +17,9 @@ class TestLikeAndDislikeBackend(BaseTest):
 
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_like_video(self, iteration_name, iteration_values):
-        name = f"Backend {iteration_name}"
+        name = f"BACKEND {iteration_name}"
         logger = Logger._init_logger_txt(name)
+        logger.info(f"{iteration_name} execution started.")
         endpoint = 'https://www.googleapis.com/youtube/v3/videos/rate'
         
         params = {"id": iteration_values['id_param'],

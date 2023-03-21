@@ -21,10 +21,12 @@ first_run = True
 
 class TestSearchBar(BaseTest):
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
-    def test_aaa(self, iteration_name, iteration_values, init_driver):
+    def test_searchBar(self, iteration_name, iteration_values, init_driver):
         global first_run
         driver = init_driver
-        logger = Logger._init_logger_txt(iteration_name)
+        name = f"FRONTEND Search bar {iteration_name}."
+        logger = Logger._init_logger_txt(name)
+        logger.info(f"{iteration_name} execution started.")
         if first_run == True:
             signIn_Page = SignInPage(driver)
             signIn_Page.sign_in(os.getenv('user_email'), os.getenv('user_password'), logger)

@@ -22,8 +22,9 @@ class TestLikeAndDislike(BaseTest):
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_like_dislike_video(self, iteration_name, iteration_values, init_driver):
         driver = init_driver
-        logger = Logger._init_logger_txt(iteration_name)
-        logger.info(iteration_name)
+        name = f"FRONTEND like functionality for {iteration_name}"
+        logger = Logger._init_logger_txt(name)
+        logger.info(f"{iteration_name} execution started.")
         if "signed_in_user" in iteration_name:
             signIn_Page = SignInPage(driver)
             signIn_Page.sign_in(eval(iteration_values['user']), eval(iteration_values['pass']), logger)

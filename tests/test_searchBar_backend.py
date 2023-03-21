@@ -15,9 +15,11 @@ with open("C:\\Selenium-python\\config\\dataSets\\backend_searchBar dataSet.json
 class TestSearchBarBackend(BaseTest):
     #@pytest.mark.skip
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
-    def test_search_status_code(self, iteration_name, iteration_values):
-        logger = Logger._init_logger_txt(iteration_name)
-        
+    def test_search_status_code(self, iteration_name, iteration_values):    
+        name = f"BACKEND Search status code {iteration_name}"
+        logger = Logger._init_logger_txt(name)
+        logger.info(f"{iteration_name} execution started.")
+
         base_url = 'https://www.googleapis.com/youtube/v3/search/'
         
         params = {
@@ -47,7 +49,7 @@ class TestSearchBarBackend(BaseTest):
     @pytest.mark.parametrize("iteration_name, iteration_values", DsHandler.read_dataset(ds_dict["testCase"]))
     def test_search_response(self, iteration_name, iteration_values):
         
-        name = f"{iteration_name} search results "
+        name = f"BACKEND Search response {iteration_name}"
         logger = Logger._init_logger_txt(name)
 
         base_url = 'https://www.googleapis.com/youtube/v3/search/'
